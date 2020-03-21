@@ -1,9 +1,9 @@
 const tradesColorMapping = {
     buy: {
-        color: 'var(--color-green)',
+        color: 'rgb(var(--bids))',
     },
     sell: {
-        color: 'var(--color-red)',
+        color: 'rgb(var(--asks))',
     },
 };
 
