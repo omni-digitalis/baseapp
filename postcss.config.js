@@ -15,5 +15,6 @@ module.exports = {
         }),
         require('postcss-hexrgba'),
         require('autoprefixer'),
+        require('postcss-color-mod-function'),
     ],
 };

@@ -1,6 +1,6 @@
 .pg-orders-tab {
   align-items: flex-start !important;
-  background: rgb(var(--body-background-color));
+  background: var(--body-background-color);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -42,7 +42,7 @@
   .pg-history-elem {
     &__empty {
       text-align: center;
-      color: rgb(var(--secondary-contrast-cta-color));
+      color: var(--secondary-contrast-cta-color);
     }
 
     &__pagination {
@@ -143,11 +143,11 @@
               }
 
               .close {
-                color: rgb(var(--secondary-text-contrast-color));
+                color: var(--secondary-text-contrast-color);
                 transition: 0.2s;
 
                 &:hover {
-                  color: rgb(var(--primary-text-color));
+                  color: var(--primary-text-color);
                   transition: 0.2s;
                 }
               }
@@ -158,15 +158,15 @@
     }
 
     &-executed {
-      color: rgb(var(--system-yellow));
+      color: var(--system-yellow);
     }
 
     &-canceled {
-      color: rgb(var(--system-red));
+      color: var(--system-red);
     }
 
     &-opened {
-      color: rgb(var(--system-green));
+      color: var(--system-green);
     }
   }
 
@@ -198,14 +198,14 @@
     &:hover {
       &::before,
       &::after {
-        background: rgb(var(--primary-text-color));
+        background: var(--primary-text-color);
         transition: 0.2s;
       }
     }
 
     &::before,
     &::after {
-      background: rgb(var(--secondary-contrast-cta-color));
+      background: var(--secondary-contrast-cta-color);
       content: '';
       position: absolute;
       top: 65%;
@@ -237,7 +237,7 @@
     transition: 0.2s;
 
     &:hover {
-      color: rgb(var(--tab-panel-text-color-hover));
+      color: var(--tab-panel-text-color-hover);
       transition: 0.2s;
     }
   }

@@ -10,7 +10,7 @@
     width: calc(var(--gap) * 70.66);
   }
   .cr-sign-up-form {
-    background: rgb(var(--body-background-color));
+    background: var(--body-background-color);
     margin: 0 auto;
     border-radius: calc(var(--gap) * 0.66);
     min-height: calc(var(--big-gap) * 10);
@@ -30,10 +30,10 @@
     }
 
     &__option {
-      background: rgb(var(--subheader-background-color));
+      background: var(--subheader-background-color);
       .__selected {
-        border-bottom: 2px solid rgb(var(--primary-cta-color));
-        color: rgb(var(--primary-text-color));
+        border-bottom: 2px solid var(--primary-cta-color);
+        color: var(--primary-text-color);
       }
     }
 
@@ -53,7 +53,7 @@
       margin: calc(var(--gap) * 6.66) !important;
     }
     &__label {
-      background: rgb(var(--input-background-color));
+      background: var(--input-background-color);
       color: var(--inout-legend-color);
       font-size: calc(var(--gap) * 2);
       top: calc(var(--gap) * (-1.33));
@@ -63,9 +63,9 @@
     .cr-checkbox {
       padding-left: calc(2.6 * var(--checkbox-general-intent));
       &__checkitem {
-        border-color: rgb(var(--secondary-contrast-cta-color));
+        border-color: var(--secondary-contrast-cta-color);
         &::after {
-          border-color: rgb(var(--primary-text-color));
+          border-color: var(--primary-text-color);
         }
       }
       &__label {
@@ -73,7 +73,7 @@
       }
     }
     &__error {
-      color: rgb(var(--system-red));
+      color: var(--system-red);
     }
     &__recaptcha {
       position: relative;
@@ -83,7 +83,7 @@
 
   .cr-sign-in-form {
     &__error-message {
-      color: rgb(var(--system-red));
+      color: var(--system-red);
     }
   }
 }
@@ -94,7 +94,7 @@
     border-radius: calc(var(--gap) * 0.66);
     min-width: 30% !important;
     width: calc(var(--big-gap) * 10);
-    background: rgb(var(--body-background-color));
+    background: var(--body-background-color);
     .cr-modal__container-header {
       border-bottom: 2px solid var(--divider-color-level-2);
       border-top-left-radius: calc(var(--gap) * 0.66);
@@ -107,7 +107,7 @@
       }
     }
     .cr-modal__container-content {
-      color: rgb(var(--secondary-contrast-color));
+      color: var(--secondary-contrast-color);
       padding: 0 calc(var(--gap) * 8.33);
       margin-bottom: 0;
     }

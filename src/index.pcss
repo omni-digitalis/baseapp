@@ -51,12 +51,12 @@ input[type=text], input[type=button] {
     height: auto;
     padding: 9px 12px 9px;
     cursor: move;
-    background: rgb(var(--subheader-background-color));
+    background: var(--subheader-background-color);
     box-shadow: inset 0 -1px 0 var(--divider-color-level-1);
     position: sticky;
     top: 0;
     z-index: 9999;
-    color: rgb(var(--primary-text-color));
+    color: var(--primary-text-color);
   }
 
   &-background {
@@ -107,13 +107,13 @@ body, html {
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
-  color: rgb(var(--secondary-contrast-cta-color));
+  color: var(--secondary-contrast-cta-color);
   padding: 0;
   margin: 0;
 }
 
 body {
-  background: rgb(var(--main-background-color));
+  background: var(--main-background-color);
 }
 
 .pg-container {
@@ -210,7 +210,7 @@ body {
     z-index: 100;
   }
   .cr-grid-item__body {
-    background: rgb(var(--body-background-color));
+    background: var(--body-background-color);
     border-radius: 3px;
     overflow: scroll;
 
@@ -261,12 +261,12 @@ input:-webkit-autofill {
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px var(--shadow-color-level-3);
-  background: rgb(var(--secondary-contrast-cta-color-level-1));
+  background: var(--secondary-contrast-cta-color-level-1);
   border-radius: var(--gap);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--primary-cta-color));
+  background-color: var(--primary-cta-color);
   border-radius: var(--gap);
 }
 

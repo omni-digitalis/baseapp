@@ -3,14 +3,14 @@ import * as React from 'react';
 import { Spinner } from 'react-bootstrap';
 import { InjectedIntlProps, injectIntl } from 'react-intl';
 import { connect, MapDispatchToPropsFunction } from 'react-redux';
-import { Decimal, CombinedOrderBook } from '../../components';
+import { CombinedOrderBook, Decimal } from '../../components';
 import { colors } from '../../constants';
 import { accumulateVolume, calcMaxVolume, sortAsks, sortBids } from '../../helpers';
 import {
     Market,
     RootState,
-    selectCurrentMarket,
     selectCurrentColorTheme,
+    selectCurrentMarket,
     selectCurrentPrice,
     selectDepthAsks,
     selectDepthBids,
