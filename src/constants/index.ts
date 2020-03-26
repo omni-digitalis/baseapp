@@ -35,8 +35,8 @@ export const colors = {
             avatar: '#28334E',
             language: '#28334E',
             logout: '#28334E',
-            sun: '#959EAB',
-            moon: '#fff',
+            sun: 'var(--icons)',
+            moon: 'var(--primary-text-color)',
         },
         orderBook: {
             asks: 'var(--asks-level-4)',
@@ -53,8 +53,8 @@ export const colors = {
             avatar: '#737F92',
             language: '#737F92',
             logout: '#fff',
-            sun: '#fff',
-            moon: '#28334E',
+            sun: 'var(--icons)',
+            moon: 'var(--primary-text-color)',
         },
         orderBook: {
             asks: 'var(--asks-level-4)',
