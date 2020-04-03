@@ -12,13 +12,16 @@ import {
     TabPanel,
 } from '../../components';
 import {
+    CustomizationDataInterface,
     RootState,
+    selectCustomizationData,
     selectUserInfo,
     selectUserLoggedIn,
     User,
 } from '../../modules';
 
 interface ReduxProps {
+    customization?: CustomizationDataInterface;
     user: User;
     userLoggedIn: boolean;
 }
@@ -41,11 +44,12 @@ class CustomizationContainer extends React.Component<Props, State> {
     };
 
     public renderTabs = () => {
+        const { customization } = this.props;
         const { currentTabIndex } = this.state;
 
         return [
             {
-                content: currentTabIndex === 0 ? <CustomizationThemes translate={this.translate} /> : null,
+                content: currentTabIndex === 0 ? <CustomizationThemes translate={this.translate} customization={customization} /> : null,
                 label: this.translate('page.body.customization.tabs.themes'),
             },
             {
@@ -133,6 +137,7 @@ class CustomizationContainer extends React.Component<Props, State> {
 }
 
 const mapStateToProps = (state: RootState): ReduxProps => ({
+    customization: selectCustomizationData(state),
     user: selectUserInfo(state),
     userLoggedIn: selectUserLoggedIn(state),
 });

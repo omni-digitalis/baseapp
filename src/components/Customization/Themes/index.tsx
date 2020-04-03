@@ -2,6 +2,7 @@ import * as React from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { SettingsIcon } from '../../../assets/images/customization/SettingsIcon';
 import { DropdownComponent } from '../../../components';
+import { CustomizationDataInterface } from '../../../modules';
 import {
     AVAILABLE_COLOR_THEMES,
     AVAILABLE_COLORS_TITLES,
@@ -15,12 +16,14 @@ export const handleConvertColorCode = (value: string, fromRGB?: boolean) => (
 
 interface OwnProps {
     translate: (key: string) => string;
+    customization?: CustomizationDataInterface;
 }
 
 type Props = OwnProps;
 
 interface State {
     colorSettingsItem: ThemeColorTitleInterface;
+    currentThemeIndex: number;
 }
 
 const defaultColorSettingsItem = {
@@ -31,10 +34,28 @@ const defaultColorSettingsItem = {
 export class CustomizationThemes extends React.Component<Props, State> {
     public state = {
         colorSettingsItem: defaultColorSettingsItem,
+        currentThemeIndex: 0,
     };
+
+    public componentDidMount() {
+        const { customization } = this.props;
+
+        if (customization) {
+            this.handleApplyCustomizationSettings(customization);
+        }
+    }
+
+    public componentDidUpdate(prevProps: Props) {
+        const { customization } = this.props;
+
+        if (customization && customization !== prevProps.customization) {
+            this.handleApplyCustomizationSettings(customization);
+        }
+    }
 
     public renderThemesDropdown() {
         const { translate } = this.props;
+        const { currentThemeIndex } = this.state;
 
         return (
             <div className="pg-customization-themes__themes">
@@ -45,7 +66,7 @@ export class CustomizationThemes extends React.Component<Props, State> {
                     className="pg-customization-themes__themes__dropdown"
                     list={this.handleGetThemesTitlesList()}
                     onSelect={this.handleChangeCurrentTheme}
-                    placeholder={''}
+                    placeholder={translate(AVAILABLE_COLOR_THEMES[currentThemeIndex].title)}
                 />
             </div>
         );
@@ -128,6 +149,24 @@ export class CustomizationThemes extends React.Component<Props, State> {
 
                 return result;
             }, {});
+        }
+
+        this.handleSetCurrentTheme(index);
+    };
+
+    private handleSetCurrentTheme = (themeIndex: number) => {
+        this.setState({ currentThemeIndex: themeIndex });
+    };
+
+    private handleApplyCustomizationSettings = (customization: CustomizationDataInterface) => {
+        const parsedSettings = customization.settings ? JSON.parse(customization.settings) : null;
+
+        if (parsedSettings && parsedSettings.theme_id) {
+            const themeToSet = AVAILABLE_COLOR_THEMES.findIndex(theme => theme.id === +parsedSettings.theme_id);
+
+            if (themeToSet >= 0) {
+                this.handleSetCurrentTheme(themeToSet);
+            }
         }
     };
 }

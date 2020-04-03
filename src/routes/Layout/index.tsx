@@ -270,9 +270,9 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
         });
     };
 
-    private handleApplyCustomization = (customization: { settings: string }) => {
+    private handleApplyCustomization = (customization: CustomizationDataInterface) => {
         const rootElement = document.documentElement;
-        const parsedSettings = customization ? JSON.parse(customization.settings) : null;
+        const parsedSettings = customization && customization.settings ? JSON.parse(customization.settings) : null;
 
         if (rootElement && parsedSettings && parsedSettings.theme_colors) {
             parsedSettings.theme_colors.reduce((result, item) => {
