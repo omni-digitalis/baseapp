@@ -498,6 +498,8 @@ export const ru: LangType = {
     'page.body.customization.actionButtons.reset': 'Reset',
     'page.body.customization.actionButtons.save': 'Save',
 
+    'page.body.customization.themes.selector.label': 'Theme Presets',
+
     'page.body.customization.themes.color.mainBackgroundColor': 'Main background',
     'page.body.customization.themes.color.bodyBackgroundColor': 'Body background',
     'page.body.customization.themes.color.headerBackgroundColor': 'Header background',
@@ -520,6 +522,11 @@ export const ru: LangType = {
     'page.body.customization.themes.color.shadowColor': 'Shadow color',
     'page.body.customization.themes.color.landingBackgroundColor': 'Landing background',
     'page.body.customization.themes.color.strengthMeterVeryStrong': 'Password very strong',
+
+    'page.body.customization.themes.theme.darkBlue.title': 'Dark blue',
+    'page.body.customization.themes.theme.darkRed.title': 'Dark red',
+    'page.body.customization.themes.theme.purple.title': 'Purple',
+    'page.body.customization.themes.theme.green.title': 'Green',
 
 
     // success messages

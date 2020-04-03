@@ -1,37 +1,17 @@
 import * as React from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { SettingsIcon } from '../../../assets/images/customization/SettingsIcon';
+import { DropdownComponent } from '../../../components';
+import {
+    AVAILABLE_COLOR_THEMES,
+    AVAILABLE_COLORS_TITLES,
+    ThemeColorTitleInterface,
+} from '../../../themes';
 import { ColorSettings } from './ColorSettings';
 
-export interface ThemeColorInterface {
-    key: string;
-    title: string;
-}
-
-const AVAILABLE_COLORS: ThemeColorInterface[] = [
-    { key: '--main-background-color', title: 'page.body.customization.themes.color.mainBackgroundColor' },
-    { key: '--body-background-color', title: 'page.body.customization.themes.color.bodyBackgroundColor' },
-    { key: '--header-background-color', title: 'page.body.customization.themes.color.headerBackgroundColor' },
-    { key: '--subheader-background-color', title: 'page.body.customization.themes.color.subheaderBackgroundColor' },
-    { key: '--dropdown-background-color', title: 'page.body.customization.themes.color.dropdownBackgroundColor' },
-    { key: '--icons', title: 'page.body.customization.themes.color.icon' },
-    { key: '--primary-cta-color', title: 'page.body.customization.themes.color.primaryCtaColor' },
-    { key: '--contrast-cta-color', title: 'page.body.customization.themes.color.contrastCtaColor' },
-    { key: '--secondary-contrast-cta-color', title: 'page.body.customization.themes.color.secondaryContrastCtaColor' },
-    { key: '--cta-layer-color', title: 'page.body.customization.themes.color.ctaLayerColor' },
-    { key: '--system-green', title: 'page.body.customization.themes.color.systemGreen' },
-    { key: '--system-red', title: 'page.body.customization.themes.color.systemRed' },
-    { key: '--system-yellow', title: 'page.body.customization.themes.color.systemYellow' },
-    { key: '--asks', title: 'page.body.customization.themes.color.asks' },
-    { key: '--bids', title: 'page.body.customization.themes.color.bids' },
-    { key: '--primary-text-color', title: 'page.body.customization.themes.color.primaryTextColor' },
-    { key: '--text-contrast-color', title: 'page.body.customization.themes.color.textContrastColor' },
-    { key: '--input-background-color', title: 'page.body.customization.themes.color.inputBackgroundColor' },
-    { key: '--divider-color', title: 'page.body.customization.themes.color.dividerColor' },
-    { key: '--shadow-color', title: 'page.body.customization.themes.color.shadowColor' },
-    { key: '--landing-background-color', title: 'page.body.customization.themes.color.landingBackgroundColor' },
-    { key: '--strength-meter-very-strong', title: 'page.body.customization.themes.color.strengthMeterVeryStrong' },
-];
+export const handleConvertColorCode = (value: string, fromRGB?: boolean) => (
+    fromRGB ? `--grb-${value.slice(2)}` :  `--${value.slice(6)}`
+);
 
 interface OwnProps {
     translate: (key: string) => string;
@@ -40,7 +20,7 @@ interface OwnProps {
 type Props = OwnProps;
 
 interface State {
-    colorSettingsItem: ThemeColorInterface;
+    colorSettingsItem: ThemeColorTitleInterface;
 }
 
 const defaultColorSettingsItem = {
@@ -53,15 +33,34 @@ export class CustomizationThemes extends React.Component<Props, State> {
         colorSettingsItem: defaultColorSettingsItem,
     };
 
-    public renderColorsItem(item: ThemeColorInterface, index: number) {
+    public renderThemesDropdown() {
         const { translate } = this.props;
+
+        return (
+            <div className="pg-customization-themes__themes">
+                <label className="pg-customization-themes__themes__dropdown-label">
+                    {translate('page.body.customization.themes.selector.label')}
+                </label>
+                <DropdownComponent
+                    className="pg-customization-themes__themes__dropdown"
+                    list={this.handleGetThemesTitlesList()}
+                    onSelect={this.handleChangeCurrentTheme}
+                    placeholder={''}
+                />
+            </div>
+        );
+    }
+
+    public renderColorsItem(item: ThemeColorTitleInterface, index: number) {
+        const { translate } = this.props;
+        const grbItemKey = handleConvertColorCode(item.key);
 
         return (
             <div key={index} className="pg-customization-themes__colors__item" onClick={e => this.handleSetColorSettingsItem(item)}>
                 <div className="pg-customization-themes__colors__item__content">
                     <span
                         className="pg-customization-themes__colors__item__content__circle"
-                        style={{backgroundColor: `var(${item.key})`}}
+                        style={{backgroundColor: `var(${grbItemKey})`}}
                     />
                     <span className="pg-customization-themes__colors__item__content__title">{translate(item.title)}</span>
                 </div>
@@ -76,7 +75,7 @@ export class CustomizationThemes extends React.Component<Props, State> {
         return (
             <div className="pg-customization-themes__colors">
                 <PerfectScrollbar>
-                    {AVAILABLE_COLORS.map((item, index) => this.renderColorsItem(item, index))}
+                    {AVAILABLE_COLORS_TITLES.map((item, index) => this.renderColorsItem(item, index))}
                 </PerfectScrollbar>
             </div>
         );
@@ -88,6 +87,7 @@ export class CustomizationThemes extends React.Component<Props, State> {
 
         return (
             <div className="pg-customization-themes">
+                {this.renderThemesDropdown()}
                 {this.renderColors()}
                 <ColorSettings
                     handleCloseColorSettings={this.handleSetColorSettingsItem}
@@ -98,13 +98,36 @@ export class CustomizationThemes extends React.Component<Props, State> {
         );
     }
 
-    private handleSetColorSettingsItem = (item?: ThemeColorInterface) => {
-        let newSettings: ThemeColorInterface = defaultColorSettingsItem;
+    private handleGetThemesTitlesList = () => {
+        const { translate } = this.props;
+
+        return AVAILABLE_COLOR_THEMES.map(item => translate(item.title));
+    };
+
+    private handleSetColorSettingsItem = (item?: ThemeColorTitleInterface) => {
+        let newSettings: ThemeColorTitleInterface = defaultColorSettingsItem;
 
         if (item) {
             newSettings = item;
         }
 
         this.setState({ colorSettingsItem: newSettings });
+    };
+
+
+    private handleChangeCurrentTheme = (index: number) => {
+        const rootElement = document.documentElement;
+
+        if (rootElement) {
+            AVAILABLE_COLORS_TITLES.reduce((result, item) => {
+                const newItemColor = AVAILABLE_COLOR_THEMES[index].theme.find(theme => theme.key === item.key);
+
+                if (newItemColor) {
+                    rootElement.style.setProperty(item.key, newItemColor.value);
+                }
+
+                return result;
+            }, {});
+        }
     };
 }

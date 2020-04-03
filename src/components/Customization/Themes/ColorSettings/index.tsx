@@ -2,11 +2,12 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { SketchPicker } from 'react-color';
 import { ArrowIcon } from '../../../../assets/images/customization/ArrowIcon';
-import { ThemeColorInterface } from '../index';
+import { ThemeColorTitleInterface } from '../../../../themes';
+import { handleConvertColorCode } from '../index';
 
 interface OwnProps {
     handleCloseColorSettings: () => void;
-    item: ThemeColorInterface;
+    item: ThemeColorTitleInterface;
     translate: (key: string) => string;
 }
 
@@ -24,7 +25,7 @@ export class ColorSettings extends React.Component<Props, State> {
     public componentDidUpdate(prevProps: Props) {
         const { item } = this.props;
 
-        if (item && prevProps.item && item.key !== prevProps.item.key) {
+        if (item && prevProps.item && JSON.stringify(item) !== JSON.stringify(prevProps.item)) {
             this.handleSetCurrentItemColor();
         }
     }
@@ -61,17 +62,18 @@ export class ColorSettings extends React.Component<Props, State> {
         );
     }
 
-    private getCurrentItemColor = (item: ThemeColorInterface) => {
+    private getCurrentItemColor = (item: ThemeColorTitleInterface) => {
         const { currentItemColor } = this.state;
         const bodyStyles = window.getComputedStyle(document.body);
+        const grbItemColor = handleConvertColorCode(item.key);
 
-        return currentItemColor || bodyStyles.getPropertyValue(item.key);
+        return currentItemColor || bodyStyles.getPropertyValue(grbItemColor);
     };
 
     private setCurrentItemColor = color => {
         const { item } = this.props;
         const rootElement = document.documentElement;
-        const newItemColor = color && color.rgb && `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`;
+        const newItemColor = color && color.rgb && `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a}`;
 
         if (rootElement && newItemColor) {
             this.handleSetCurrentItemColor(newItemColor);
@@ -80,6 +82,10 @@ export class ColorSettings extends React.Component<Props, State> {
     };
 
     private handleSetCurrentItemColor = (colorToSet?: string) => {
-        this.setState({ currentItemColor: colorToSet });
+        if (colorToSet) {
+            this.setState({ currentItemColor: `rgba(${colorToSet})` });
+        } else {
+            this.setState({ currentItemColor: '' });
+        }
     };
 }
