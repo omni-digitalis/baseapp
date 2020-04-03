@@ -3,6 +3,7 @@ import { alertReducer  } from './public/alert';
 import { changeColorThemeReducer  } from './public/colorTheme';
 import { configsReducer } from './public/configs';
 import { currenciesReducer } from './public/currencies';
+import { customizationReducer } from './public/customization';
 import { gridLayoutReducer } from './public/gridLayout/reducer';
 import { changeLanguageReducer  } from './public/i18n';
 import { klineReducer  } from './public/kline';
@@ -41,6 +42,7 @@ export const publicReducer = combineReducers({
     colorTheme: changeColorThemeReducer,
     configs: configsReducer,
     currencies: currenciesReducer,
+    customization: customizationReducer,
     recentTrades: recentTradesReducer,
     markets: marketsReducer,
     orderBook: orderBookReducer,
