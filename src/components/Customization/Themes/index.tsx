@@ -16,6 +16,7 @@ export const handleConvertColorCode = (value: string, fromRGB?: boolean) => (
 
 interface OwnProps {
     translate: (key: string) => string;
+    resetToDefault: boolean;
     customization?: CustomizationDataInterface;
 }
 
@@ -46,10 +47,14 @@ export class CustomizationThemes extends React.Component<Props, State> {
     }
 
     public componentDidUpdate(prevProps: Props) {
-        const { customization } = this.props;
+        const { customization, resetToDefault } = this.props;
 
         if (customization && customization !== prevProps.customization) {
             this.handleApplyCustomizationSettings(customization);
+        }
+
+        if (customization && resetToDefault !== prevProps.resetToDefault) {
+            this.handleApplyCustomizationSettings(customization, true);
         }
     }
 
@@ -158,14 +163,18 @@ export class CustomizationThemes extends React.Component<Props, State> {
         this.setState({ currentThemeIndex: themeIndex });
     };
 
-    private handleApplyCustomizationSettings = (customization: CustomizationDataInterface) => {
+    private handleApplyCustomizationSettings = (customization: CustomizationDataInterface, shouldReset?: boolean) => {
         const parsedSettings = customization.settings ? JSON.parse(customization.settings) : null;
 
         if (parsedSettings && parsedSettings.theme_id) {
-            const themeToSet = AVAILABLE_COLOR_THEMES.findIndex(theme => theme.id === +parsedSettings.theme_id);
+            const themeIndexToSet = AVAILABLE_COLOR_THEMES.findIndex(theme => theme.id === +parsedSettings.theme_id);
 
-            if (themeToSet >= 0) {
-                this.handleSetCurrentTheme(themeToSet);
+            if (themeIndexToSet >= 0) {
+                this.handleSetCurrentTheme(themeIndexToSet);
+
+                if (shouldReset) {
+                    this.handleChangeCurrentTheme(themeIndexToSet);
+                }
             }
         }
     };

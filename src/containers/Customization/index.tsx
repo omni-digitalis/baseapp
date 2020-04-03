@@ -35,21 +35,29 @@ type Props = ReduxProps & HistoryProps & RouteProps & InjectedIntlProps;
 interface State {
     currentTabIndex: number;
     isOpen: boolean;
+    resetToDefault: boolean;
 }
 
 class CustomizationContainer extends React.Component<Props, State> {
     public state = {
         currentTabIndex: 0,
         isOpen: true,
+        resetToDefault: false,
     };
 
     public renderTabs = () => {
         const { customization } = this.props;
-        const { currentTabIndex } = this.state;
+        const { currentTabIndex, resetToDefault } = this.state;
 
         return [
             {
-                content: currentTabIndex === 0 ? <CustomizationThemes translate={this.translate} customization={customization} /> : null,
+                content: currentTabIndex === 0 ? (
+                    <CustomizationThemes
+                        translate={this.translate}
+                        customization={customization}
+                        resetToDefault={resetToDefault}
+                    />
+                ) : null,
                 label: this.translate('page.body.customization.tabs.themes'),
             },
             {
@@ -70,7 +78,7 @@ class CustomizationContainer extends React.Component<Props, State> {
     public renderActionButtons() {
         return (
             <div className="pg-customization__action-buttons">
-                <span className="pg-customization__action-buttons__button">
+                <span className="pg-customization__action-buttons__button" onClick={this.handleClickResetButton}>
                     {this.translate('page.body.customization.actionButtons.reset')}
                 </span>
                 <span className="pg-customization__action-buttons__button">
@@ -112,6 +120,12 @@ class CustomizationContainer extends React.Component<Props, State> {
             </div>
         );
     }
+
+    private handleClickResetButton = () => {
+        this.setState(prevState => ({
+            resetToDefault: !prevState.resetToDefault,
+        }));
+    };
 
     private handleChangeTab = (index: number) => {
         this.setState({
