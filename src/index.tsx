@@ -8,6 +8,7 @@ import en from 'react-intl/locale-data/en';
 import { Provider } from 'react-redux';
 import { App } from './App';
 import { customLocaleData } from './custom/translations';
+import './index.css';
 import './vltIndex.css';
 import { rootSaga } from './modules';
 import { rangerSagas } from './modules/public/ranger';
