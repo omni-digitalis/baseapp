@@ -83,6 +83,10 @@
     height: 100%;
     background-color: white;
     border-radius: 5px;
+
+    -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.26);
+	-moz-box-shadow:    2px 2px 7px 0px rgba(0, 0, 0, 0.26);
+	box-shadow:         2px 2px 7px 0px rgba(0, 0, 0, 0.26);
     
     /* border: 1px solid #000; */
 }
