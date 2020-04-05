@@ -36,3 +36,4 @@ export * from './PasswordStrengthMeter';
 export * from './PasswordStrengthTip';
 export * from './VltMyWallet';
 export * from './VltApplicationsCard';
+export * from './VltMarkets';
