@@ -1,0 +1,100 @@
+/* ==============================
+        initial-card
+===============================*/
+.security-alert-card {
+    width: 100%;
+    min-height: 96px;
+    border: 1px solid #000;
+
+    margin-top: 8px;
+}
+
+/* ==============================
+        title-container
+===============================*/
+.vlt-title-container {
+    width: 100%;
+    min-height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 16px;
+}
+
+.vlt-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vlt-title-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: var(--card-box-shadow);
+    -webkit-box-shadow: var(--card-box-shadow);
+    -moz-box-shadow: var(--card-box-shadow);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 10px;
+}
+
+.vlt-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vlt-actions-row span {
+    color: var(--button-secondary-color);
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+
+    margin-right: 10px;
+}
+
+.vlt-exibition-mode {
+    height: 24px;
+    border: var(--button-secondary-border);
+    border-radius: 20px;
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    outline: 0 !important;
+
+    padding: 0px 39px 0px 16px;
+    margin-right: 16px;
+
+    cursor: pointer;
+}
+
+/* ==============================
+        cards-section
+===============================*/
+.vlt-card {
+    min-height: 256px;
+    height: 100%;
+
+    border: 1px solid #000;
+}
+
+/* ==============================
+            support
+===============================*/
+.vlt-flex-1 {
+    flex: 1;
+}
+
+.vlt-flex-2 {
+    flex: 2;
+}
+
+.vlt-card-with-margin {
+    margin-left: 16px;
+}

@@ -265,7 +265,7 @@
     ],
     "no-any": false,
     "no-var-requires": false,
-    "ordered-imports": true,
+    "ordered-imports": false,
     "newline-before-return": true
   }
 }
