@@ -49,6 +49,30 @@ const currencies = [
         currencyAmount: "0.00",
         value: 0,
         color: "#F89273"
+    }, {
+        name: 'Lisk',
+        shortName: 'LSK',
+        amount: '0.00000',
+        currencyName: "BRL",
+        currencyAmount: "0.00",
+        value: 0,
+        color: "#F89273"
+    }, {
+        name: 'Lisk',
+        shortName: 'LSK',
+        amount: '0.00000',
+        currencyName: "BRL",
+        currencyAmount: "0.00",
+        value: 0,
+        color: "#F89273"
+    }, {
+        name: 'Lisk',
+        shortName: 'LSK',
+        amount: '0.00000',
+        currencyName: "BRL",
+        currencyAmount: "0.00",
+        value: 0,
+        color: "#F89273"
     },
 ];
 
@@ -77,12 +101,9 @@ const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWallet
                     </div>
                 </div>
             </div>
-            <div
-                className={"content-grid"}
-            >
-                <div
-                    className={"piechart-cell"}
-                >
+
+            <div className={"content"}>
+                <div className={"content-col-1"}>
                     <ResponsiveContainer
                         // aspect={1}
                         width={"100%"}
@@ -109,58 +130,44 @@ const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWallet
                         </PieChart>
                     </ResponsiveContainer>
                 </div>
-                <div className={"cell asset-title-row-cell"}>
-                    <p className={"col-title"}>{"Ativo"}</p>
-                </div>
-                <div className={"cell asset-amount-row-cell"}>
-                    <p className={"col-title"}>{"Montante"}</p>
-                </div>
-                <div className={"cell asset-currency-row-cell"}>
-                    <p className={"col-title"}>{"BRL"}</p>
-                </div>
-                {
-                    currencies.map((currency, index) => (
-                        <React.Fragment key={`cell-${index}`}>
-                            <div
-                                className={"cell asset-container"}
-                                style={{
-                                    gridArea: `${index + 2} / 3 / ${index + 3} / 4`
-                                }}
-                            >
+
+                <div className={"content-col-2"}>
+                    <div className={"content-col-2-row"}>
+                        <div className={"bold content-col-2-row-content"}>
+                            {"Ativo"}
+                        </div>
+                        <div className={"bold content-col-2-row-content"}>
+                            {"Montante"}
+                        </div>
+                        <div className={"bold content-col-2-row-content"}>
+                            {"BRL"}
+                        </div>
+                    </div>
+                    {currencies.map((currency, index) => (
+                        <div
+                            key={`item-${index}`}
+                            className={"content-col-2-row"}
+                        >
+                            <div className={"content-col-2-row-content"}>
                                 <div
                                     className={"color-circle"}
                                     style={{
                                         backgroundColor: currency.color
                                     }}
                                 />
-                                <span>
-                                    {currency.name}
-                                </span>
+                                {currency.name}
                             </div>
-                            <div
-                                className={"cell"}
-                                style={{
-                                    gridArea: `${index + 2} / 4 / ${index + 3} / 5`
-                                }}
-                            >
-                                <span>
-                                    {currency.amount}
-                                </span>
+                            <div className={"content-col-2-row-content"}>
+                                {currency.amount} {currency.shortName}
                             </div>
-                            <div
-                                className={"cell"}
-                                style={{
-                                    gridArea: `${index + 2} / 5 / ${index + 3} / 6`
-                                }}
-                            >
-                                <span>
-                                    {currency.currencyAmount} {currency.currencyName}
-                                </span>
+                            <div className={"content-col-2-row-content"}>
+                                {currency.currencyAmount} {currency.currencyName}
                             </div>
-                        </React.Fragment>
-                    ))
-                }
+                        </div>
+                    ))}
+                </div>
             </div>
+
         </div>
     );
 };
