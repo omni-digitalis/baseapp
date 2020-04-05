@@ -49,31 +49,7 @@ const currencies = [
         currencyAmount: "0.00",
         value: 0,
         color: "#F89273"
-    }, {
-        name: 'Lisk',
-        shortName: 'LSK',
-        amount: '0.00000',
-        currencyName: "BRL",
-        currencyAmount: "0.00",
-        value: 0,
-        color: "#F89273"
-    }, {
-        name: 'Lisk',
-        shortName: 'LSK',
-        amount: '0.00000',
-        currencyName: "BRL",
-        currencyAmount: "0.00",
-        value: 0,
-        color: "#F89273"
-    }, {
-        name: 'Lisk',
-        shortName: 'LSK',
-        amount: '0.00000',
-        currencyName: "BRL",
-        currencyAmount: "0.00",
-        value: 0,
-        color: "#F89273"
-    },
+    }
 ];
 
 const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWalletProps) => {
