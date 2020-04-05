@@ -1,3 +1,4 @@
+export * from './VltDashboardScreen';
 export * from './ChangeForgottenPasswordScreen';
 export * from './ConfirmScreen';
 export * from './ConfirmScreen';

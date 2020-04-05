@@ -34,3 +34,4 @@ export * from './FilterInput';
 export * from './TickerTable';
 export * from './PasswordStrengthMeter';
 export * from './PasswordStrengthTip';
+export * from './VltNavbar';

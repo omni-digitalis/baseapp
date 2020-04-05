@@ -37,6 +37,7 @@ import {
     SignUpScreen,
     TradingScreen,
     VerificationScreen,
+    VltDashboardScreen,
     WalletsScreen,
 } from '../../screens';
 
@@ -164,11 +165,12 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
         } = this.props;
         const { isShownExpSessionModal } = this.state;
 
-        const tradingCls = window.location.pathname.includes('/trading') ? 'trading-layout' : '';
+        //const tradingCls = window.location.pathname.includes('/trading') ? 'trading-layout' : '';
         toggleColorTheme(colorTheme);
 
         return (
-            <div className={`container-fluid pg-layout ${tradingCls}`}>
+            // className={`container-fluid pg-layout ${tradingCls}`}
+            <div>
                 <Switch>
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signin" component={SignInScreen} />
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/accounts/confirmation" component={VerificationScreen} />
@@ -178,6 +180,9 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/email-verification" component={EmailVerificationScreen} />
                     <Route exact={true} path="/trading/:market?" component={TradingScreen} />
                     <Route exact={true} path="/" component={LandingScreen} />
+                    {/* routes vlt */}
+                    <Route exact path="/dashboard" component={VltDashboardScreen} />
+                    {/* end routes vlt */}
                     <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/orders" component={OrdersTabScreen} />
                     <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/history" component={HistoryScreen} />
                     <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/confirm" component={ConfirmScreen} />

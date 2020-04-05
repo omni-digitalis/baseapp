@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --body-bg-color: #EDF5F0;
+    --body-font-size: 16px;
+
+    /* navbar */
+    --navbar-bg-color: #FFFFFF;
+    --navbar-box-shadow: 0 2px 3px 0 #00000029;
+
+    --navbar-text-color: #9F6C10;
+    --navbar-text-font-family: 'Poppins', sans-serif;
+    --navbar-text-font-size: 1rem;
+    --navbar-text-font-weight: 400;
+
+    /* screens */
+    --screen-text-bg-color: #E8BA4E;
+
+    --screen-text-font-family: 'Poppins', sans-serif;
+    --screen-text-font-size: 2.5rem;
+    --screen-text-font-weight: 700;
+
+    /* alert card */
+    --alert-card-bg-color: #FFFFFF;
+    --alert-card-border-radius: 5px;
+
+    --alert-card-title-color: #9F6C10;
+    --alert-card-title-font-family: 'Poppins', sans-serif;
+    --alert-card-title-font-size: 1rem;
+    --alert-card-title-font-weight: 600;
+    --alert-card-title-text-transform: uppercase;
+
+    --alert-card-text-color: #616161;
+    --alert-card-text-font-family: 'Lato', sans-serif;
+    --alert-card-text-font-size: 0.875rem;
+    --alert-card-text-font-weight: 400;
+
+    /* cards */
+    --card-bg-color: #FFFFFF;
+    --card-box-shadow: 0 3px 3px 0 #00000029;
+    --card-border-radius: 4px;
+
+    --card-title-color: #9F6C10;
+    --card-title-font-family: 'Popins', sans-serif;
+    --card-title-font-size: 1rem;
+    --card-title-font-weight: 700;
+    --card-title-text-transform: uppercase;
+
+    --card-text-color: #616161;
+    --card-text-font-family: 'Lato', sans-serif;
+    --card-text-font-size: 0.875rem;
+    --card-text-font-weight: 400;
+
+    --card-bold-text-color: #000000;
+    --card-bold-text-font-family: 'Lato', sans-serif;
+    --card-bold-text-font-size: 0.688rem;
+    --card-bold-text-font-weight: 700;
+
+    --card-big-value-label-color: #616161;
+    --card-big-value-label-font-family: 'Lato', sans-serif;
+    --card-big-value-label-font-size: 0,750rem;
+    --card-big-value-label-font-weight: 700;
+    --card-big-value-label-transform: uppercase;
+
+    --card-big-value-color: #000000;
+    --card-big-value-font-family: 'Azonix', sans-serif;
+    --card-big-value-font-size: 2rem;
+    --card-big-value-font-weight: 400;
+
+    --card-big-value-coin-color: #000000;
+    --card-big-value-coin-font-family: 'Azonix', sans-serif;
+    --card-big-value-coin-font-size: 1rem;
+    --card-big-value-coin-font-weight: 400;
+    --card-big-value-coin-transform: uppercase;
+
+    /* buttons */
+    --button-font-family: 'Lato', sans-serif;
+    --button-font-size: 0.750rem;
+    --button-font-weight: 400;
+
+    --button-primary-background: transparent linear-gradient(180deg, #9F6C10 0%, #C7902D 100%) 0% 0% no-repeat padding-box;
+    --button-primary-color: #FFFFFF;
+
+    --button-secondary-background: transparent;
+    --button-secondary-color: #616161;
+    --button-secondary-border: 1px solid #9F6C10;
+
+}
+
+body,
+html {
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--body-bg-color);
+}
+
+nav {
+    width: 100%;
+    height: 56px;
+    background: var(--navbar-bg-color);
+    box-shadow: var(--navbar-box-shadow);
+    -webkit-box-shadow: var(--navbar-box-shadow);
+    -moz-box-shadow: var(--navbar-box-shadow);
+}
+
+section {
+    width: 100%;
+    min-height: 256px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h1 {
+    color: var(--screen-text-bg-color);
+    font-family: var(--screen-text-font-family);
+    font-size: var(--screen-text-font-size);
+    font-weight: var(--screen-text-font-weight);
+}
+
+button {
+    height: 24px;
+    border: 0;
+    border-radius: 20px;
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    outline: 0 !important;
+}
+
+.vlt-container {
+    max-width: 1664px;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    margin: 0 auto;
+}
+
+.vlt-button-primary {
+    background: var(--button-primary-background);
+    color: var(--button-primary-color);
+    padding: 0 15px;
+
+    transition: filter 0.33s;
+}
+
+.vlt-button-primary:hover {
+    filter: brightness(90%)
+}
+
+.vlt-button-secondary {
+    background: var(--button-secondary-background);
+    color: var(--button-secondary-color);
+}
