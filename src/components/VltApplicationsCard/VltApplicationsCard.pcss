@@ -12,10 +12,13 @@
     justify-content: space-between;
     align-items: center;
 
-    .title {
-
-    }
-
+		.title {
+			font-family: var(--card-title-font-family);
+			font-weight: bold;
+			font-size: var(--card-title-font-size);
+			color: var(--card-title-color);
+		}
+    
     .btn-container {
       
     }
@@ -28,21 +31,30 @@
     justify-content: space-around;
     align-items: center;
 
+    p {
+      margin-bottom: 0;
+    }
+
     .text-container { 
       text-align: right;
     }
 
     .highlight-text {
-      font-size: var(--font-size-bigger);
-      font-weight: bold;
+      color: var(--card-big-value-color);
+      font-family: var(--card-big-value-font-family);
+      font-size: var(--card-big-value-font-size);
+      font-weight: var(--card-big-value-font-weight);
     }
     
     .currency-symbol {
-      font-size: var(--font-size-smaller);
+      font-size: var(--card-big-value-coin-font-size);
     }
   
     .legend-text {
-      font-size: var(--font-size);
+      font-family: var(--card-big-value-label-font-family);
+      font-size: var(--card-big-value-label-font-size);
+      font-weight: var(--card-big-value-label-font-weight);
+      text-transform: uppercase;
     }
 
   }

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet');
+@font-face {
+    font-family: 'Azonix';
+    src: url('assets/fonts/Azonix.otf'); 
+  }
 
 :root {
     --body-bg-color: #EDF5F0;
@@ -43,13 +47,13 @@
 
     --card-title-color: #9F6C10;
     --card-title-font-family: 'Popins', sans-serif;
-    --card-title-font-size: 1rem;
+    --card-title-font-size: 1.25rem;
     --card-title-font-weight: 700;
     --card-title-text-transform: uppercase;
 
     --card-text-color: #616161;
     --card-text-font-family: 'Lato', sans-serif;
-    --card-text-font-size: 0.875rem;
+    --card-text-font-size: 1.1rem;
     --card-text-font-weight: 400;
 
     --card-bold-text-color: #000000;
@@ -65,13 +69,13 @@
 
     --card-big-value-color: #000000;
     --card-big-value-font-family: 'Azonix', sans-serif;
-    --card-big-value-font-size: 2rem;
-    --card-big-value-font-weight: 400;
+    --card-big-value-font-size: 2.7rem;
+    --card-big-value-font-weight: bold;
 
     --card-big-value-coin-color: #000000;
     --card-big-value-coin-font-family: 'Azonix', sans-serif;
     --card-big-value-coin-font-size: 1rem;
-    --card-big-value-coin-font-weight: 400;
+    --card-big-value-coin-font-weight: bold;
     --card-big-value-coin-transform: uppercase;
 
     /* buttons */
