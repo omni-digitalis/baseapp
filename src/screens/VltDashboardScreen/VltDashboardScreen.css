@@ -78,10 +78,13 @@
         cards-section
 ===============================*/
 .vlt-card {
+    max-height: 100px;
     min-height: 256px;
     height: 100%;
-
-    border: 1px solid #000;
+    background-color: white;
+    border-radius: 5px;
+    
+    /* border: 1px solid #000; */
 }
 
 /* ==============================

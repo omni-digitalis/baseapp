@@ -3,6 +3,7 @@ import * as React from 'react';
 import './VltDashboardScreen.css';
 // images
 import eyeSVG from '../../assets/vlt-images/icons/eye.svg';
+import { VltMyWallet, VltApplicationsCard } from '../../components';
 
 const VltDashboardScreen = props => {
     return(
@@ -31,8 +32,10 @@ const VltDashboardScreen = props => {
             </div>
 
             <section>
-                <div className="vlt-card vlt-flex-2"></div>
-                <div className="vlt-card vlt-flex-1 vlt-card-with-margin"></div>
+                <VltMyWallet className="vlt-card vlt-flex-2"/>
+                {/* <div className="vlt-card vlt-flex-2"></div> */}
+                <VltApplicationsCard className="vlt-card vlt-flex-1 vlt-card-with-margin"/>
+                {/* <div className="vlt-card vlt-flex-1 vlt-card-with-margin"></div> */}
                 <div className="vlt-card vlt-flex-1 vlt-card-with-margin"></div>
             </section>
 
