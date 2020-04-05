@@ -52,7 +52,7 @@ const currencies = [
     },
 ];
 
-export const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWalletProps) => {
+const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWalletProps) => {
     const {
         className = "",
         ...rest
@@ -65,6 +65,7 @@ export const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltM
         >
             <div className={"panel"}>
                 <p className={"title"}>
+                    {/* TODO: i18n */}
                     {"SUA CARTEIRA"}
                 </p>
                 <div className={"btn-container"}>
