@@ -32,8 +32,8 @@ const VltDashboardScreen = props => {
             </div>
 
             <section>
-                <VltMyWallet className="vlt-card vlt-flex-2"/>
-                <VltApplicationsCard className="vlt-card vlt-flex-1 vlt-card-with-margin"/>
+                <VltMyWallet className="vlt-card vlt-card-adorned vlt-flex-2"/>
+                <VltApplicationsCard className="vlt-card vlt-card-adorned vlt-flex-1 vlt-card-with-margin"/>
                 <VltMarkets className="vlt-card vlt-flex-1 vlt-card-with-margin"/>
             </section>
 
