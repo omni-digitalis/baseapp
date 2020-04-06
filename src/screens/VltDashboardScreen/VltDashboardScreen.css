@@ -81,14 +81,21 @@
     max-height: 100px;
     min-height: 256px;
     height: 100%;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
 
     -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.26);
 	-moz-box-shadow:    2px 2px 7px 0px rgba(0, 0, 0, 0.26);
 	box-shadow:         2px 2px 7px 0px rgba(0, 0, 0, 0.26);
     
-    /* border: 1px solid #000; */
+    background-color: white;
+}
+
+.vlt-card-adorned {
+    background-image: url(../../assets/vlt-images/cards/background@2x.png);
+    background-size: 230px auto;
+    background-repeat: no-repeat;
+    background-position: right bottom;
 }
 
 /* ==============================
