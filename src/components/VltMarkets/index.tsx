@@ -1,58 +1,33 @@
 import * as React from 'react';
+import { marketsFetch, selectMarkets, Market } from '../../modules';
+import { MapDispatchToProps } from 'react-redux';
+import { connect } from 'react-redux';
 
-export interface VltMarketsProps extends React.HTMLAttributes<HTMLDivElement> {
-
+interface ReduxProps {
+    markets: Market[];
 }
 
-const markets = [
-    {
-        currency: "BTC/BRL",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "BTC/USDT",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "DASH/USDT",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "ETH/BRL",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "ETH/USDT",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "BTC/BRL",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "BTC/USDT",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "DASH/USDT",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "ETH/BRL",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }, {
-        currency: "ETH/USDT",
-        price: "0.0",
-        variation: "+ 0.0%"
-    }
-]
+interface DispatchProps {
+    fetchMarkets: typeof marketsFetch;
+}
+
+export interface VltMarketsProps extends ReduxProps, DispatchProps, React.HTMLAttributes<HTMLDivElement> {
+
+}
 
 const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsProps) => {
     const {
         className = "",
+        markets,
+        fetchMarkets,
         ...rest
     } = props;
+
+    React.useEffect(() => {
+        fetchMarkets && fetchMarkets();
+    }, [fetchMarkets]);
+
+    console.log(markets);
 
     return (
         <div
@@ -97,13 +72,13 @@ const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsPr
                         className={"content-row"}
                     >
                         <div className={"content-row-item"}>
-                            {market.currency}
+                            {market.name}
                         </div>
                         <div className={"content-row-item text-center"}>
-                            {market.price}
+                            {market.min_price}
                         </div>
                         <div className={"content-row-item text-right"}>
-                            {market.variation}
+                            {"+ 0.0%"}
                         </div>
                     </div>
                 ))}
@@ -112,4 +87,12 @@ const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsPr
     );
 };
 
-export const VltMarkets = React.memo(Component);
+const mapStateToProps = (state) => ({
+    markets: selectMarkets(state)
+});
+
+const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = dispatch => ({
+    fetchMarkets: () => dispatch(marketsFetch()),
+});
+
+export const VltMarkets = connect(mapStateToProps, mapDispatchToProps)(React.memo(Component));
