@@ -6,6 +6,13 @@ window.env = {
         rangerUrl: 'ws://localhost:9003/api/v2/ranger',
         finexUrl: '',
     },
+    // api: {
+    //     authUrl: 'https://staging.valutti.com/api/v2/barong',
+    //     tradeUrl: 'https://staging.valutti.com/api/v2/peatio',
+    //     applogicUrl: 'https://staging.valutti.com/api/v2/applogic',
+    //     rangerUrl: 'ws://staging.valutti.com/api/v2/ranger',
+    //     finexUrl: '',
+    // },
     minutesUntilAutoLogout: '5',
     withCredentials: false,
     gaTrackerKey: '',
