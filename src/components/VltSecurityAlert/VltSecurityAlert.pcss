@@ -1,0 +1,104 @@
+.vlt-security-alert-card {
+    width: 100%;
+    min-height: 96px;
+    margin-top: 8px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: white;
+
+    -webkit-box-shadow: var(--card-box-shadow);
+	-moz-box-shadow:    var(--card-box-shadow);
+    box-shadow:         var(--card-box-shadow);
+
+    .container {
+        max-width: 1259px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+    }
+
+    .security-alert-item {
+        flex: 1;
+        min-height: 96px;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+
+        img {
+            max-width: 48px;
+            max-height: 64px;
+            margin: 0 40px 0 30px;
+        }
+
+        .item-message {
+            .item-message-title {
+                color: var(--alert-card-title-color);
+                font-family: var(--alert-card-title-font-family);
+                font-size: var(--alert-card-title-font-size);
+                font-weight: var(--alert-card-title-font-weight);
+                text-transform: var(--alert-card-title-text-transform);
+
+                p {
+                    margin: 0 !important;
+                }
+            }
+
+            .item-message-text {
+                color: var(--alert-card-text-color);
+                font-family: var(--alert-card-text-font-family);
+                font-size: var(--alert-card-text-font-size);
+                font-weight: var(--alert-card-text-font-weight);
+                line-height: 18px;
+
+                p {
+                    margin: 0 !important;
+                    margin-top: 5px !important;
+                }
+            }
+        }
+
+        .item-validation {
+            flex: 1;
+            min-height: 96px;
+            height: 100%;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                margin-bottom: 15px;
+            }
+
+            img#emailIcon {
+                min-width: 64px;
+                min-height: 36.33px;
+            }
+
+            img#fileIcon {
+                min-width: 46px;
+                min-height: 60px;
+            }
+
+            img#fingerprintIcon {
+                min-width: 56px;
+                min-height: 56px;
+            }
+
+            p {
+                margin: 0 !important;
+                font-family: 'Lato', sans-serif;
+                font-size: 0.813rem;
+                font-weight: 400;
+                color: var(--alert-card-text-color);
+
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+}

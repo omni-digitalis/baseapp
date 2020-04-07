@@ -3,12 +3,12 @@ import * as React from 'react';
 import './VltDashboardScreen.css';
 // images
 import eyeSVG from '../../assets/vlt-images/icons/eye.svg';
-import { VltMyWallet, VltApplicationsCard, VltMarkets } from '../../components';
+import { VltMyWallet, VltApplicationsCard, VltMarkets, VltSecurityAlert } from '../../components';
 
 const VltDashboardScreen = props => {
     return(
         <div className="vlt-container">
-            <div className="security-alert-card"></div>
+            <VltSecurityAlert />
 
             <div className="vlt-title-container">
                 <div className="vlt-title-row">

@@ -42,7 +42,7 @@
 
     /* cards */
     --card-bg-color: #FFFFFF;
-    --card-box-shadow: 0 3px 3px 0 #00000029;
+    --card-box-shadow: 0 2px 3px 0 #00000029;
     --card-border-radius: 4px;
 
     --card-title-color: #9F6C10;
