@@ -168,3 +168,37 @@ button {
     color: var(--button-secondary-color);
     border: var(--button-secondary-border);
 }
+
+.vlt-card-operation-button {
+    min-width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
+
+    font-size: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #000000;
+    
+    box-shadow: var(--card-box-shadow);
+    -webkit-box-shadow: var(--card-box-shadow);
+    -moz-box-shadow: var(--card-box-shadow);
+}
+
+.vlt-card-operation-button > i, span, icon {
+    transition: 0.1s transform, 0.2s opacity;
+}
+
+.vlt-card-operation-button:hover:enabled > * {
+    transform: scale(0.95);
+    transform-origin: center;
+    opacity: 0.8;
+}
+
+.vlt-card-operation-button:disabled {
+    opacity: 0.2;
+}
