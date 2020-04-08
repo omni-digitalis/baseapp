@@ -33,13 +33,15 @@ function toBRL(currency: string, value: number): number {
     }
 }
 
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+function getColor(index) {
+    switch(index) {
+        case 0: return "#8BD1BC";
+        case 1: return "#BDE2E6";
+        case 2: return "#CDD97A";
+        case 3: return "#E9BFE7";
+        case 4: return "#F78D6D";
+        default: return "#000000";
     }
-    return color;
 }
 
 const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWalletProps) => {
@@ -56,18 +58,17 @@ const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWallet
     }, [fetchWallets]);
 
     //TODO: atualizar typescript para suportar optional chain
-    const mappedWallets = React.useMemo(() => wallets && wallets.map((wallet) => ({
+    const mappedWallets = React.useMemo(() => wallets && wallets.map((wallet, index) => ({
         value: parseFloat(wallet.balance as string),
         name: wallet.name,
         shortName: wallet.currency.toUpperCase(),
         balance: wallet.balance ? parseFloat(wallet.balance as string).toFixed(4) : "0.0000",
         brl: wallet.balance ? toBRL(wallet.currency, parseFloat(wallet.balance as string)).toFixed(2) : (0).toFixed(2),
-        color: getRandomColor()
     })).sort((a, b) => {
         if (a.brl > b.brl) return -1;
         else if (a.brl < b.brl) return 1
         else return 0
-    }), [wallets]);
+    }).map((wallet, index) => ({...wallet, color: getColor(index)})).slice(0, 5), [wallets]);
 
     return (
         <div
