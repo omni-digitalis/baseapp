@@ -79,13 +79,17 @@ const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWallet
                     {/* TODO: i18n */}
                     {"SUA CARTEIRA"}
                 </p>
-                <div className={"btn-container"}>
-                    <div >
-
-                    </div>
-                    <div>
-
-                    </div>
+                <div className={"card-options"}>
+                    <button
+                        className={"vlt-card-operation-button"}
+                    >
+                        <i className="fas fa-arrows-alt" />
+                    </button>
+                    <button
+                        className={"vlt-card-operation-button"}
+                    >
+                        <i className="fas fa-times" />
+                    </button>
                 </div>
             </div>
 
