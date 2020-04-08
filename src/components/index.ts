@@ -38,3 +38,4 @@ export * from './VltNavbar';
 export * from './VltMyWallet';
 export * from './VltApplicationsCard';
 export * from './VltMarkets';
+export * from './VltPeriodPrices';
