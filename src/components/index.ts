@@ -38,4 +38,8 @@ export * from './VltNavbar';
 export * from './VltMyWallet';
 export * from './VltApplicationsCard';
 export * from './VltMarkets';
+<<<<<<< HEAD
 export * from './VltPeriodPrices';
+=======
+export * from './VltSecurityAlert';
+>>>>>>> 939274c9c3601383232014687a275ee972672b68

@@ -2,10 +2,6 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  
-  -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow:    2px 2px 7px 0px rgba(0, 0, 0, 0.26);
-  box-shadow:         2px 2px 7px 0px rgba(0, 0, 0, 0.26);
 
   .panel {
     display: flex;
@@ -18,9 +14,9 @@
 			font-size: var(--card-title-font-size);
 			color: var(--card-title-color);
 		}
-    
+
     .btn-container {
-      
+
     }
   }
 
@@ -36,7 +32,7 @@
       margin-bottom: 0;
     }
 
-    .text-container { 
+    .text-container {
       text-align: right;
     }
 
@@ -46,18 +42,26 @@
       font-size: var(--card-big-value-font-size);
       font-weight: var(--card-big-value-font-weight);
     }
-    
+
     .currency-symbol {
       font-size: var(--card-big-value-coin-font-size);
+      margin-right: 10px;
     }
-  
+
     .legend-text {
       font-family: var(--card-big-value-label-font-family);
       font-size: var(--card-big-value-label-font-size);
       font-weight: var(--card-big-value-label-font-weight);
       text-transform: uppercase;
+      color: var(--card-big-value-label-color)
     }
 
   }
-  
+
+    .bold {
+        font-size: var(--card-bold-text-font-size);
+        font-weight: bold;
+        color: var(--card-bold-text-color);
+    }
+
 }

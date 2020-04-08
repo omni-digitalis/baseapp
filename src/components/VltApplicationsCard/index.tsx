@@ -33,13 +33,13 @@ const Component: React.FunctionComponent<VltApplicationsCardProps> = (props: Vlt
 
             <div className={"content"}>
                 <div className={"text-container"}>
-                    <p className={"highlight-text"}>
+                    <span className={"highlight-text"}>
                         <span className={"currency-symbol"}>
                             {/* TODO: i18n */}
                             {"R$"}
                         </span>
                         {"2.500,00"}
-                    </p>
+                    </span>
                     <p className={"legend-text"}>
                         {/* TODO: i18n */}
                         {"valor aplicado"}
@@ -60,7 +60,7 @@ const Component: React.FunctionComponent<VltApplicationsCardProps> = (props: Vlt
                 </div>
             </div>
 
-        </div>  
+        </div>
     );
 };
 

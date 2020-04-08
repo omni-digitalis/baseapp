@@ -1,15 +1,4 @@
 /* ==============================
-        initial-card
-===============================*/
-.security-alert-card {
-    width: 100%;
-    min-height: 96px;
-    border: 1px solid #000;
-
-    margin-top: 8px;
-}
-
-/* ==============================
         title-container
 ===============================*/
 .vlt-title-container {
@@ -19,13 +8,12 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 16px;
+    margin-top: 24px;
 }
 
 .vlt-title-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .vlt-title-icon {
@@ -81,13 +69,11 @@
     max-height: 100px;
     min-height: 256px;
     height: 100%;
-    /* background-color: white; */
-    border-radius: 5px;
+    border-radius: 4px;
 
-    -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.26);
-	-moz-box-shadow:    2px 2px 7px 0px rgba(0, 0, 0, 0.26);
-	box-shadow:         2px 2px 7px 0px rgba(0, 0, 0, 0.26);
-    
+    -webkit-box-shadow: var(--card-box-shadow);
+	-moz-box-shadow:    var(--card-box-shadow);
+	box-shadow:         var(--card-box-shadow);
     background-color: white;
 }
 
