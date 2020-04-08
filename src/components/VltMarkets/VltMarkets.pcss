@@ -22,6 +22,7 @@
 	}
 
 	.content {
+        position: relative;
         display: flex;
         flex-direction: column;
 		flex: 1;
@@ -38,13 +39,13 @@
     .content-row {
         display: flex;
         flex-direction: row;
+        margin: 5px 0px 5px 0px;
         width: 100%;
     }
 
     .content-row-item {
-        margin: 5px 0px 5px 0px;
         display: flex;
-        width: 33.3%;
+        flex: 1
     }
 
     .text-center {
@@ -60,5 +61,11 @@
 		font-weight: bold;
 		color: var(--card-bold-text-color);
 	}
+    
+    .sticky {
+        background-color: white;
+        position: sticky;
+        top: 0;
+    }
 
 }

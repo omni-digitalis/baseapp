@@ -119,7 +119,7 @@ const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWallet
                 </div>
 
                 <div className={"content-col-2"}>
-                    <div className={"content-col-2-row"}>
+                    <div className={"sticky content-col-2-row"}>
                         <div className={"bold content-col-2-row-content"}>
                             {"Ativo"}
                         </div>
