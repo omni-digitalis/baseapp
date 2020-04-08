@@ -140,6 +140,7 @@ const VltDashboardScreen = props => {
                                         }
                                     })
                                 ))}
+                                {provided.placeholder}
                             </section>
                         )}
                     </Droppable>
