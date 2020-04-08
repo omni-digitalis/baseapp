@@ -1,14 +1,13 @@
 .vlt-my-wallet {
 	display: flex;
 	flex-direction: column;
-    padding: 10px;
     max-height: 256px;
 
 	.panel {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 
 		.title {
 			font-family: var(--card-title-font-family);
@@ -17,15 +16,28 @@
 			color: var(--card-title-color);
 		}
 
-		.btn-container {
+		.card-options {
+            display: flex;
+            align-items: flex-start
+        }
 
-		}
+        .card-options > :first-child {
+            margin-right: 10px
+        }
 	}
 
 	.content {
 		display: flex;
 		flex: 1;
 		min-height: 100%;
+	}
+
+	.content > :first-child {
+		margin-right: 10px;
+	}
+
+	.content > :last-child {
+		margin-left: 10px;
 	}
 
 	.content-col-1 {
@@ -37,7 +49,7 @@
 
 	.content-col-2 {
 		position: relative;
-		flex: 1.5;
+		flex: 1.7;
 		overflow-y: scroll;
 		display: flex;
 		flex-direction: column;
@@ -68,13 +80,13 @@
 	}
 
 	.color-circle {
-		width: 32px;
-		height: 32px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
 		border: 2px solid rgba(0,0,0,.2);
 		margin-right: 5px;
 	}
-	    
+
     .sticky {
         background-color: white;
         position: sticky;

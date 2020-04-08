@@ -72,6 +72,8 @@
     border-radius: 4px;
     margin: 0 8px;
 
+    padding: var(--card-padding);
+
     -webkit-box-shadow: var(--card-box-shadow);
 	-moz-box-shadow:    var(--card-box-shadow);
 	box-shadow:         var(--card-box-shadow);

@@ -5,7 +5,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './VltDashboardScreen.css';
 // images
 import eyeSVG from '../../assets/vlt-images/icons/eye.svg';
-import { VltCard, VltSecurityAlert, VltMyWallet, VltApplicationsCard, VltMarkets } from '../../components';
+import { VltCard, VltSecurityAlert, VltMyWallet, VltApplicationsCard, VltMarkets, VltPeriodPrices } from '../../components';
 
 interface Card {
     cardId: string
@@ -136,7 +136,7 @@ const VltDashboardScreen = props => {
                                                 </Draggable>
                                             )
                                         } else {
-                                            return <div/>
+                                            return <div />
                                         }
                                     })
                                 ))}
@@ -146,7 +146,7 @@ const VltDashboardScreen = props => {
                 </DragDropContext>
 
                 <section>
-                    <div className="vlt-card vlt-flex-1"></div>
+                    <VltPeriodPrices className="vlt-card vlt-flex-1" />
                 </section>
 
                 <section>

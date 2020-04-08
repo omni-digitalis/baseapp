@@ -1,0 +1,100 @@
+.vlt-period-prices-currency-slot-bordered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--screen-text-bg-color);
+    border-radius: var(--card-border-radius);
+    text-transform: uppercase;
+    word-spacing: 100vw;
+    text-align: center;
+    color: var(--card-title-color);
+    line-height: 1;
+    transition: 0.2s transform;
+    cursor: pointer;
+
+    .plus-container {
+        max-width: 56px;
+        min-width: 56px;
+        max-height: 56px;
+        min-height: 56px;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:var(--screen-text-bg-color);
+        border: 2px dashed var(--screen-text-bg-color);
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    &:hover {
+        transform: scale(0.98);
+    }
+}
+
+.vlt-period-prices-currency-slot {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    font-family: var(--card-text-font-family);
+
+    .currency-slot-header {
+        display: flex;
+        align-items: center;
+        font-size: var(--card-bold-text-font-size);
+        font-weight: var(--card-bold-text-font-weight);
+        color: var(--card-bold-text-color);
+        text-transform: uppercase;
+
+        .icon {
+            margin-left: 5px;
+            color: var(--card-title-color);
+        }
+    }
+
+    .currency-slot-body {
+        display: flex;
+        justify-self: stretch;
+        flex: 1;
+    }
+    
+    .currency-slot-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--card-bold-text-color);
+        
+        .currency-slot-footer-currency {
+            display: flex;
+            align-items: center;
+            .icon {
+                font-size: 0.85rem;
+                align-self: center;
+                margin-right: 5px;
+            }
+        }
+        
+        .currency-slot-footer-variation {
+            font-size: var(--card-bold-text-font-size);
+            font-weight: var(--card-text-font-weight);
+            color: var(--card-text-color);
+        
+            .currency-slot-footer-variation-percentage {
+                margin-left: 5px;
+                color: white;
+                font-weight: bold;
+                padding: 0px 5px;
+                display: inline-block;
+                background-color: var(--brand-success-color);
+                border-radius: var(--card-border-radius);
+                
+                .icon {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
