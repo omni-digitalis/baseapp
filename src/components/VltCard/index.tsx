@@ -3,12 +3,15 @@ import { DraggableProvided, DraggableStateSnapshot, DraggableRubric } from 'reac
 import { compose } from 'redux';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
-    ref: React.Ref<HTMLDivElement>,
-    provided: DraggableProvided,
     title: string,
-    onClose?: () => void;
+    ref?: React.Ref<HTMLDivElement>,
+    provided?: DraggableProvided,
     snapshot?: DraggableStateSnapshot,
     rubric?: DraggableRubric,
+    onClose?: () => void;
+    disableMove?: boolean;
+    disableClose?: boolean;
+    extraActionsComponents?: React.ReactNode[],
     classes?: {
         root?: string,
         panel?: string,
@@ -20,9 +23,12 @@ const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<
     const {
         title,
         children,
-        provided,
+        provided = { draggableProps: {}, dragHandleProps: {} },
         className,
         classes,
+        extraActionsComponents,
+        disableClose,
+        disableMove,
         ...rest
     } = props;
 
@@ -30,6 +36,8 @@ const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<
         draggableProps,
         dragHandleProps
     } = provided;
+
+    const conditionalDragHandleProps = disableMove ? {} : dragHandleProps;
 
     return (
         <div
@@ -46,14 +54,21 @@ const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<
                     {title}
                 </span>
                 <div className={"card-options"}>
+                    {extraActionsComponents && 
+                            extraActionsComponents
+                    }
                     <div
-                        className={"vlt-card-operation-button"}
-                        {...dragHandleProps}
-
+                        {...conditionalDragHandleProps}
                     >
-                        <i className="fas fa-arrows-alt" />
+                        <button
+                            className={"no-pointer-events vlt-card-operation-button"}
+                            disabled={disableMove}
+                        >
+                            <i className="fas fa-arrows-alt" />
+                        </button>
                     </div>
                     <button
+                        disabled={disableClose}
                         className={"vlt-card-operation-button"}
                     >
                         <i className="fas fa-times" />
