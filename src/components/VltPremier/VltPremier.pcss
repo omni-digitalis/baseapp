@@ -15,6 +15,7 @@
 
     .vlt-premier-container {
         flex: 1;
+        max-height: 164px;
         width: 100%;
 
         display: flex;
@@ -24,7 +25,7 @@
             height: 100%;
             background: transparent linear-gradient(180deg, #E8BA4E 0%, #E8BA4E80 100%) 0% 0% no-repeat padding-box;
             border-radius: 10px;
-            padding: 0 10px;
+            padding: 0 8px;
 
             display: flex;
             flex-direction: column;
@@ -54,29 +55,58 @@
                 }
             }
 
-            p {
-                font-family: 'Poppins', sans-serif;
-                font-size: 0.875rem;
-                font-weight: 400;
-                color: #616161;
+            @media (max-width: 1359px) {
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 0.750rem;
+                    font-weight: 400;
+                    color: #616161;
+                }
+
+                button.vlt-premier-button {
+                    width: 32px;
+                    height: 32px;
+                    border: 0;
+                    border-radius: 50%;
+                    background: transparent linear-gradient(180deg, #9F6C10 0%, #C7902D 100%) 0% 0% no-repeat padding-box;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 10px;
+                }
+
+                button.vlt-button-primary {
+                    margin-bottom: 10px;
+                }
             }
 
-            button.vlt-button-primary {
-                margin-bottom: 16px;
+            @media (min-width: 1360px) {
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                    color: #616161;
+                }
+
+                button.vlt-premier-button {
+                    width: 32px;
+                    height: 32px;
+                    border: 0;
+                    border-radius: 50%;
+                    background: transparent linear-gradient(180deg, #9F6C10 0%, #C7902D 100%) 0% 0% no-repeat padding-box;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 16px;
+                }
+
+                button.vlt-button-primary {
+                    margin-bottom: 16px;
+                }
             }
 
-            button.vlt-premier-button {
-                width: 32px;
-                height: 32px;
-                border: 0;
-                border-radius: 50%;
-                background: transparent linear-gradient(180deg, #9F6C10 0%, #C7902D 100%) 0% 0% no-repeat padding-box;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 16px;
-            }
 
             button.vlt-premier-button i {
                 color: #FFFFFF;
@@ -109,5 +139,5 @@
 }
 
 .vlt-flex-not-full {
-    flex: 0.9;
+    flex: 0.8;
 }
