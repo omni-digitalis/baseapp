@@ -28,9 +28,18 @@
             display: flex;
             align-items: flex-start;
         }
+        
 
-        .card-options > :first-child {
-            margin-right: 10px;
+        .card-options > :nth-child(n) {
+            margin-left: 10px;
+        }
+
+        .card-options > :nth-last-child(2) {
+            margin-left: 20px;
+        }
+        
+        .no-pointer-events {
+            pointer-events: none
         }
     }
 

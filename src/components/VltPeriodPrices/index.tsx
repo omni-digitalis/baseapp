@@ -9,12 +9,13 @@ interface ReduxProps {
 }
 
 export interface Props extends DispatchProps, ReduxProps, React.HTMLAttributes<HTMLDivElement> {
-
+    period: "YEARLY" | "MONTHLY" | "WEEKLY" | "DAILY"
 }
 
 
 const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<HTMLDivElement>) => {
     const {
+        period,
         className,
         ...rest
     } = props;
@@ -29,24 +30,17 @@ const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<
             className={`vlt-period-prices ${className || ""}`}
             {...rest}
         >
-            <div className={"panel"}>
+            {/* 
+<div className={"panel"}>
                 <p className={"title"}>
-                    {/* TODO: i18n */}
-                    {"COTAÇÕES"}
                 </p>
                 <div className={"options"}>
                     <div>
                         <button className={"period-option vlt-button-secondary"}>
-                            {/* //TODO: i18n */}
-                            {"Anual"}
                         </button>
                         <button className={"period-option vlt-button-secondary"}>
-                            {/* //TODO: i18n */}
-                            {"Semanal"}
                         </button>
                         <button className={"period-option vlt-button-primary"}>
-                            {/* //TODO: i18n */}
-                            {"Diário"}
                         </button>
                     </div>
                     <div className={"card-options"}>
@@ -64,9 +58,7 @@ const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<
                         </button>
                     </div>
                 </div>
-            </div>
-
-            <div className={"content"}>
+            </div> */}
                 <CurrencySlot
                     className={"currency-slot"}
                     currency={{
@@ -91,7 +83,6 @@ const Component: React.FunctionComponent<Props> = (props: Props, ref: React.Ref<
                 <CurrencySlot
                     className={"currency-slot"}
                 />
-            </div>
         </div>
     );
 }
@@ -100,3 +91,4 @@ export const VltPeriodPrices = compose(
     React.memo,
     React.forwardRef,
 )(Component) as React.FunctionComponent<Props>;
+

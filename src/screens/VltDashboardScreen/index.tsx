@@ -20,6 +20,7 @@ interface Card {
 }
 
 const VltDashboardScreen = props => {
+    const [selectedPeriod, setSelectedPeriod] = React.useState<string>("DAILY");
     const [cardsOfFirstSection, setCardsOfFirstSection] = React.useState<Card[]>([]);
     const [cardsOfLastSection, setCardsOfLastSection] = React.useState<Card[]>([]);
 
@@ -211,7 +212,42 @@ const VltDashboardScreen = props => {
                 </DragDropContext>
 
                 <section>
-                    <VltPeriodPrices className="vlt-card vlt-flex-1" />
+                    <VltCard
+                        title={"cotações"}
+                        className={"vlt-card vlt-flex-1"}
+                        disableMove
+                        disableClose
+                        extraActionsComponents={[
+                            (<button
+                                className={`vlt-period-prices-extra-button vlt-button-${
+                                    selectedPeriod === "YEARLY" ? "primary" : "secondary"
+                                }`}
+                                onClick={() => setSelectedPeriod("YEARLY")}
+                            >
+                                {"Anual"}
+                            </button>),
+                            (<button
+                                className={`vlt-period-prices-extra-button vlt-button-${
+                                    selectedPeriod === "MONTHLY" ? "primary" : "secondary"
+                                }`}
+                                onClick={() => setSelectedPeriod("MONTHLY")}
+                            >
+                                {"Semanal"}
+                            </button>),
+                            (<button
+                                className={`vlt-period-prices-extra-button vlt-button-${
+                                    selectedPeriod === "DAILY" ? "primary" : "secondary"
+                                }`}
+                                onClick={() => setSelectedPeriod("DAILY")}
+                            >
+                                {"Diário"}
+                            </button>),
+                        ]}
+                    >
+                        <VltPeriodPrices
+                            period={"DAILY"}
+                        />
+                    </VltCard>
                 </section>
 
                 <section>
