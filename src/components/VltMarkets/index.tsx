@@ -39,11 +39,11 @@ const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsPr
                     {/* TODO: i18n */}
                     {"Criptomoeda"}
                 </div>
-                <div className={"bold content-row-item text-center"}>
+                <div className={"bold content-row-item"}>
                     {/* TODO: i18n */}
                     {"Preço"}
                 </div>
-                <div className={"bold content-row-item text-right"}>
+                <div className={"bold content-row-item"}>
                     {/* TODO: i18n */}
                     {"% (24h)"}
                 </div>
@@ -56,10 +56,10 @@ const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsPr
                     <div className={"content-row-item"}>
                         {market.name}
                     </div>
-                    <div className={"content-row-item text-center"}>
+                    <div className={"content-row-item"}>
                         {market.min_price}
                     </div>
-                    <div className={"content-row-item text-right"}>
+                    <div className={"content-row-item"}>
                         {"+ 0.0%"}
                     </div>
                 </div>
@@ -72,10 +72,10 @@ const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsPr
                     <div className={"content-row-item"}>
                         {market.name}
                     </div>
-                    <div className={"content-row-item text-center"}>
+                    <div className={"content-row-item"}>
                         {market.min_price}
                     </div>
-                    <div className={"content-row-item text-right"}>
+                    <div className={"content-row-item"}>
                         {"+ 0.0%"}
                     </div>
                 </div>
