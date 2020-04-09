@@ -5,15 +5,25 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './VltDashboardScreen.css';
 // images
 import eyeSVG from '../../assets/vlt-images/icons/eye.svg';
-import { VltCard, VltSecurityAlert, VltMyWallet, VltApplicationsCard, VltMarkets, VltPeriodPrices } from '../../components';
+import {
+    VltCard,
+    VltSecurityAlert,
+    VltMyWallet,
+    VltApplicationsCard,
+    VltMarkets,
+    VltPeriodPrices,
+    VltPremier
+} from '../../components';
 
 interface Card {
     cardId: string
 }
 
 const VltDashboardScreen = props => {
-    const [cardsOfFirstLine, setCardsOfFirstLine] = React.useState<Card[]>([]);
-    const jsxElements = [
+    const [cardsOfFirstSection, setCardsOfFirstSection] = React.useState<Card[]>([]);
+    const [cardsOfLastSection, setCardsOfLastSection] = React.useState<Card[]>([]);
+
+    const elementsOfFirstSection = [
         {
             title: "minha carteira",
             cardId: 'myWallet-card',
@@ -34,15 +44,33 @@ const VltDashboardScreen = props => {
             content: <VltMarkets />,
             flex: 1
         }
-    ]
+    ];
+
+    const elementsOfLastSection = [
+        {
+            title: "fique por dentro",
+            cardId: 'blog-card',
+            content: <h1>Fique por dentro</h1>,
+            adorned: true,
+            flex: 1
+        },
+        {
+            title: "valutti premier",
+            cardId: 'premier-card',
+            content: <VltPremier />,
+            flex: 1
+        },
+    ];
 
     React.useEffect(() => {
-        const dataOnLocalStorage = localStorage.getItem('cards_of_first_line_position');
+        const dataOfFirstSection = localStorage.getItem('cards_of_first_section_position');
+        const dataOfLastSection = localStorage.getItem('cards_of_last_section_position');
 
-        if (dataOnLocalStorage) {
-            setCardsOfFirstLine(JSON.parse(dataOnLocalStorage))
+        // configurando a posição dos cards da primeira seção
+        if (dataOfFirstSection) {
+            setCardsOfFirstSection(JSON.parse(dataOfFirstSection))
         } else {
-            setCardsOfFirstLine([
+            setCardsOfFirstSection([
                 {
                     cardId: 'myWallet-card'
                 },
@@ -54,11 +82,28 @@ const VltDashboardScreen = props => {
                 }
             ])
         }
+
+        // configurando a posição dos cards da útlima seção
+        if (dataOfLastSection) {
+            setCardsOfLastSection(JSON.parse(dataOfLastSection))
+        } else {
+            setCardsOfLastSection([
+                {
+                    cardId: 'blog-card'
+                },
+                {
+                    cardId: 'premier-card'
+                }
+            ])
+        }
     }, []);
 
     React.useEffect(() => {
-        const cardsOfFirstLinePosition = JSON.stringify(cardsOfFirstLine);
-        localStorage.setItem('cards_of_first_line_position', cardsOfFirstLinePosition);
+        const cardsOfFirstSectionPosition = JSON.stringify(cardsOfFirstSection);
+        const cardsOfLastSectionPosition = JSON.stringify(cardsOfLastSection);
+
+        localStorage.setItem('cards_of_first_section_position', cardsOfFirstSectionPosition);
+        localStorage.setItem('cards_of_last_section_position', cardsOfLastSectionPosition);
     });
 
     function reorder(list: Card[], startIndex: number, endIndex: number): Card[] {
@@ -69,19 +114,35 @@ const VltDashboardScreen = props => {
         return result;
     };
 
-    function onDragEndFirstLine(result: any) {
+    const onDragEnd = (result: any, cardsOfSection: Card[], sectionName: string) => {
         // dropped outside the list
         if (!result.destination) {
             return;
         }
 
         const cards = reorder(
-            cardsOfFirstLine,
+            cardsOfSection,
             result.source.index,
             result.destination.index
         );
 
-        setCardsOfFirstLine(cards);
+        switch (sectionName) {
+            case 'first':
+                setCardsOfFirstSection(cards);
+                break;
+            case 'second':
+                // TODO
+                break;
+            case 'third':
+                // TODO
+                break;
+            case 'last':
+                setCardsOfLastSection(cards);
+                break;
+            default:
+                console.error('Seção incorreta');
+                break;
+        }
     }
 
     return (
@@ -111,15 +172,15 @@ const VltDashboardScreen = props => {
                     </div>
                 </div>
 
-                <DragDropContext onDragEnd={onDragEndFirstLine}>
+                <DragDropContext onDragEnd={result => onDragEnd(result, cardsOfFirstSection, 'first')}>
                     <Droppable droppableId="droppable" direction="horizontal">
                         {(provided, snapshot) => (
                             <section
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                             >
-                                {cardsOfFirstLine.map((card, index) => (
-                                    jsxElements.map(element => {
+                                {cardsOfFirstSection.map((card, index) => (
+                                    elementsOfFirstSection.map(element => {
                                         if (card.cardId === element.cardId) {
                                             return (
                                                 <Draggable key={card.cardId} draggableId={card.cardId} index={index}>
@@ -160,10 +221,43 @@ const VltDashboardScreen = props => {
                     <div className="vlt-card vlt-flex-1"></div>
                 </section>
 
-                <section>
-                    <div className="vlt-card vlt-flex-1"></div>
-                    <div className="vlt-card vlt-flex-1"></div>
-                </section>
+                <DragDropContext onDragEnd={result => onDragEnd(result, cardsOfLastSection, 'last')}>
+                    <Droppable droppableId="droppable" direction="horizontal">
+                        {(provided, snapshot) => (
+                            <section
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
+                                {cardsOfLastSection.map((card, index) => (
+                                    elementsOfLastSection.map(element => {
+                                        if (card.cardId === element.cardId) {
+                                            return (
+                                                <Draggable key={card.cardId} draggableId={card.cardId} index={index}>
+                                                    {(provided, snapshot) => (
+                                                        <VltCard
+                                                            title={element.title}
+                                                            ref={provided.innerRef}
+                                                            provided={provided}
+                                                            className={["vlt-card",
+                                                                element.adorned && "vlt-card-adorned",
+                                                                element.flex === 1 ? 'vlt-flex-1' : 'vlt-flex-2'
+                                                            ].join(" ")}
+                                                        >
+                                                            {element.content}
+                                                        </VltCard>
+                                                    )}
+                                                </Draggable>
+                                            )
+                                        } else {
+                                            return <div />
+                                        }
+                                    })
+                                ))}
+                                {provided.placeholder}
+                            </section>
+                        )}
+                    </Droppable>
+                </DragDropContext>
             </div>
         </>
     );

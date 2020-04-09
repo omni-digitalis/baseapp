@@ -40,5 +40,5 @@ export * from './VltApplicationsCard';
 export * from './VltMarkets';
 export * from './VltPeriodPrices';
 export * from './VltSecurityAlert';
-export * from './VltRow';
 export * from './VltCard';
+export * from './VltPremier';
