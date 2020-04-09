@@ -1,40 +1,14 @@
 .vlt-markets {
+    font-family: var(--card-text-font-family);
+	font-size: var(--card-text-font-size);
+	font-weight: var(--card-text-font-weight);
+	color: var(--card-text-color);
+    
+    position: relative;
     display: flex;
     flex-direction: column;
-    max-height: 256px;
-
-	.panel {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		.title {
-			text-transform: uppercase;
-			font-family: var(--card-title-font-family);
-			font-weight: bold;
-			font-size: var(--card-title-font-size);
-			color: var(--card-title-color);
-		}
-
-		.btn-container {
-
-		}
-	}
-
-	.content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-		flex: 1;
-		min-height: 100%;
-        max-height: 100%;
-        overflow-y: scroll;
-
-        font-family: var(--card-text-font-family);
-		font-size: var(--card-text-font-size);
-		font-weight: var(--card-text-font-weight);
-		color: var(--card-text-color);
-	}
+	/* min-height: 100%; */
+    overflow-y: scroll;
 
     .content-row {
         display: flex;

@@ -15,16 +15,21 @@ const VltDashboardScreen = props => {
     const [cardsOfFirstLine, setCardsOfFirstLine] = React.useState<Card[]>([]);
     const jsxElements = [
         {
+            title: "minha carteira",
             cardId: 'myWallet-card',
             content: <VltMyWallet />,
+            adorned: true,
             flex: 2
         },
         {
+            title: "valores investidos",
             cardId: 'applications-card',
             content: <VltApplicationsCard />,
+            adorned: true,
             flex: 1
         },
         {
+            title: "mercado",
             cardId: 'market-card',
             content: <VltMarkets />,
             flex: 1
@@ -118,17 +123,15 @@ const VltDashboardScreen = props => {
                                         if (card.cardId === element.cardId) {
                                             return (
                                                 <Draggable key={card.cardId} draggableId={card.cardId} index={index}>
-                                                    {(provided, snapshot) => (
+                                                    {(provided) => (
                                                         <VltCard
-                                                            reference={provided.innerRef}
-                                                            draggableProps={provided.draggableProps}
-                                                            dragHandleProps={provided.dragHandleProps}
-                                                            style={provided.draggableProps.style}
-                                                            classes={
-                                                                `vlt-card
-                                                    vlt-card-adorned
-                                                    ${element.flex === 1 ? 'vlt-flex-1' : 'vlt-flex-2'}
-                                                `}
+                                                            title={element.title}
+                                                            ref={provided.innerRef}
+                                                            provided={provided}
+                                                            className={["vlt-card",
+                                                                element.adorned && "vlt-card-adorned",
+                                                                element.flex === 1 ? 'vlt-flex-1' : 'vlt-flex-2'
+                                                            ].join(" ")}
                                                         >
                                                             {element.content}
                                                         </VltCard>

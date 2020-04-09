@@ -16,21 +16,6 @@ const Component: React.FunctionComponent<VltApplicationsCardProps> = (props: Vlt
             className={`vlt-applications-card ${className}`}
             {...rest}
         >
-            <div className={"panel"}>
-                <p className={"title"}>
-                    {/* TODO: i18n */}
-                    {"VALORES INVESTIDOS"}
-                </p>
-                <div className={"btn-container"}>
-                    <div>
-
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-            </div>
-
             <div className={"content"}>
                 <div className={"text-container"}>
                     <span className={"highlight-text"}>

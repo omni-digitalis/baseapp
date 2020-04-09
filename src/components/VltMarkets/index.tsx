@@ -34,70 +34,52 @@ const Component: React.FunctionComponent<VltMarketsProps> = (props: VltMarketsPr
             className={`vlt-markets ${className}`}
             {...rest}
         >
-            <div className={"panel"}>
-                <p className={"title"}>
+            <div className={"sticky content-row"}>
+                <div className={"bold content-row-item"}>
                     {/* TODO: i18n */}
-                    {"MERCADO"}
-                </p>
-                <div className={"btn-container"}>
-                    <div >
-
-                    </div>
-                    <div>
-
-                    </div>
+                    {"Criptomoeda"}
+                </div>
+                <div className={"bold content-row-item text-center"}>
+                    {/* TODO: i18n */}
+                    {"Preço"}
+                </div>
+                <div className={"bold content-row-item text-right"}>
+                    {/* TODO: i18n */}
+                    {"% (24h)"}
                 </div>
             </div>
-
-
-            <div className={"content"}>
-                <div className={"sticky content-row"}>
-                    <div className={"bold content-row-item"}>
-                        {/* TODO: i18n */}
-                        {"Criptomoeda"}
+            {markets.map((market, index) => (
+                <div
+                    key={`item-${index}`}
+                    className={"content-row"}
+                >
+                    <div className={"content-row-item"}>
+                        {market.name}
                     </div>
-                    <div className={"bold content-row-item text-center"}>
-                        {/* TODO: i18n */}
-                        {"Preço"}
+                    <div className={"content-row-item text-center"}>
+                        {market.min_price}
                     </div>
-                    <div className={"bold content-row-item text-right"}>
-                        {/* TODO: i18n */}
-                        {"% (24h)"}
+                    <div className={"content-row-item text-right"}>
+                        {"+ 0.0%"}
                     </div>
                 </div>
-                {markets.map((market, index) => (
-                    <div
-                        key={`item-${index}`}
-                        className={"content-row"}
-                    >
-                        <div className={"content-row-item"}>
-                            {market.name}
-                        </div>
-                        <div className={"content-row-item text-center"}>
-                            {market.min_price}
-                        </div>
-                        <div className={"content-row-item text-right"}>
-                            {"+ 0.0%"}
-                        </div>
+            ))}
+            {markets.map((market, index) => (
+                <div
+                    key={`item-${index}`}
+                    className={"content-row"}
+                >
+                    <div className={"content-row-item"}>
+                        {market.name}
                     </div>
-                ))}
-                                {markets.map((market, index) => (
-                    <div
-                        key={`item-${index}`}
-                        className={"content-row"}
-                    >
-                        <div className={"content-row-item"}>
-                            {market.name}
-                        </div>
-                        <div className={"content-row-item text-center"}>
-                            {market.min_price}
-                        </div>
-                        <div className={"content-row-item text-right"}>
-                            {"+ 0.0%"}
-                        </div>
+                    <div className={"content-row-item text-center"}>
+                        {market.min_price}
                     </div>
-                ))}
-            </div>
+                    <div className={"content-row-item text-right"}>
+                        {"+ 0.0%"}
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };

@@ -75,25 +75,6 @@ const Component: React.FunctionComponent<VltMyWalletProps> = (props: VltMyWallet
             className={`vlt-my-wallet ${className}`}
             {...rest}
         >
-            <div className={"panel"}>
-                <p className={"title"}>
-                    {/* TODO: i18n */}
-                    {"SUA CARTEIRA"}
-                </p>
-                <div className={"card-options"}>
-                    <button
-                        className={"vlt-card-operation-button"}
-                    >
-                        <i className="fas fa-arrows-alt" />
-                    </button>
-                    <button
-                        className={"vlt-card-operation-button"}
-                    >
-                        <i className="fas fa-times" />
-                    </button>
-                </div>
-            </div>
-
             <div className={"content"}>
                 <div className={"content-col-1"}>
                     <ResponsiveContainer

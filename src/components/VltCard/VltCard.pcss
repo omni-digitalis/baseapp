@@ -1,1 +1,47 @@
+.vlt-draggable-card {
+    --vlt-draggable-card-panel-height: calc(var(--card-title-font-size) + var(--card-header-padding)*2);  
 
+    display: flex;
+    flex-direction: column;
+    
+    .vlt-draggable-card-panel {
+        height: var(--vlt-draggable-card-panel-height);
+        max-height: var(--vlt-draggable-card-panel-height);
+        display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+        width: 100%;
+        /* 13.17px é o espaço entre o ícone e o topo do card no mockup */
+        padding: var(--card-header-padding);
+        
+        .card-title {
+            margin-bottom: 0;
+			font-family: var(--card-title-font-family);
+			font-weight: bold;
+			font-size: var(--card-title-font-size);
+			color: var(--card-title-color);
+            text-transform: uppercase;
+        }
+
+		.card-options {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .card-options > :first-child {
+            margin-right: 10px;
+        }
+    }
+
+    .vlt-draggable-card-body {
+        /* 16px é o espaço entre a scrollbar e o canto direito do card no mockup */
+        padding: 0px var(--card-padding) var(--card-padding) var(--card-padding);
+        flex-grow: 1;
+        max-height: calc(100% - var(--vlt-draggable-card-panel-height));
+    }
+
+    .vlt-draggable-card-body > :first-child {
+        max-height: 100%;
+    }
+}
