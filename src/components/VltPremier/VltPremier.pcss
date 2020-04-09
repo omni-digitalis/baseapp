@@ -1,3 +1,113 @@
 .vlt-premier {
-    background-color: #333;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        color: var(--card-text-color);
+        font-family: var(--card-text-font-family);
+        font-size: var(--card-text-font-size);
+        font-weight: var(--card-text-font-weight);
+
+        margin-bottom: 10px;
+    }
+
+    .vlt-premier-container {
+        flex: 1;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        .vlt-premier-container-item {
+            height: 100%;
+            background: transparent linear-gradient(180deg, #E8BA4E 0%, #E8BA4E80 100%) 0% 0% no-repeat padding-box;
+            border-radius: 10px;
+            padding: 0 10px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+
+            .vlt-premier-item-title {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.750rem;
+                font-weight: 700;
+                color: #000000;
+                text-transform: uppercase;
+                margin-top: 14px;
+                margin-bottom: 9px;
+            }
+
+            .vlt-premier-item-value {
+                font-family: 'Azonix', sans-serif;
+                font-size: 2rem;
+                font-weight: 400;
+                color: #000000;
+
+                .vlt-premier-coin {
+                    font-size: 1.125rem;
+                    margin-right: 10px;
+                }
+            }
+
+            p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: #616161;
+            }
+
+            button.vlt-button-primary {
+                margin-bottom: 16px;
+            }
+
+            button.vlt-premier-button {
+                width: 32px;
+                height: 32px;
+                border: 0;
+                border-radius: 50%;
+                background: transparent linear-gradient(180deg, #9F6C10 0%, #C7902D 100%) 0% 0% no-repeat padding-box;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 16px;
+            }
+
+            button.vlt-premier-button i {
+                color: #FFFFFF;
+                font-size: 1.3rem;
+            }
+        }
+
+        .vlt-premier-equal-sign {
+            height: 100%;
+            margin: 0 16px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #000000;
+        }
+    }
+}
+
+.vlt-item-with-margin-left {
+    margin-left: 16px;
+}
+
+.vlt-flex-full {
+    flex: 1;
+}
+
+.vlt-flex-not-full {
+    flex: 0.9;
 }
